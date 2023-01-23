@@ -17,13 +17,13 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 public class Lista extends Application {
-    public void start(Stage stage) {
+    public void start(Stage stage) {//se crea la interfaz grafica
         //Label for education
         Label label = new Label("Educational qualification:");
         Font font = Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 12);
         label.setFont(font);
 
-
+//definimos una observablelist con elementos (colores) en ella
         ObservableList<String> colores = FXCollections.observableArrayList("Rojo", "Azul", "Verde", "Amarillo", "Naranja", "Morado", "Rosa", "Negro", "Blanco", "Gris", "Marron", "Celeste");
         ListView<String> listView = new ListView<String>(colores);
         listView.setMaxSize(200, 160);
@@ -34,7 +34,7 @@ public class Lista extends Application {
         layout.getChildren().addAll(label, listView);
         layout.setStyle("-fx-background-color: BEIGE");
 
-        //
+        //boton para borrar un elemento de la lista observable, que se actualizará graficamente cuando borremos algo
         Button deleteBtn = new Button("Borrar");
         deleteBtn.setOnAction(e -> {
             int selectedIndex = listView.getSelectionModel().getSelectedIndex();
